@@ -16,26 +16,34 @@
 </head>
 <body>
   <img src="./images/logo.svg" alt="splitter"/>
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-
+  <form class="calculator">
+    <label for="bill">Bill</label>
+    <input type="number" min="0.00" step=".01" id="bill" />
+    <label for="tip">Select Tip %</label>
+    <div class="radio">
+      <input type="radio" name="tip" class="tip" value=".05">5%<br>
+      <input type="radio" name="tip" class="tip" value=".10">10%<br>
+      <input type="radio" name="tip" class="tip" value=".15">15%<br>
+      <input type="radio" name="tip" class="tip" value=".25">25%<br>
+      <input type="radio" name="tip" class="tip" value=".50">50%<br>
+      <input type="radio" name="tip" class="tip"><input type="number" name="other_tip" min=0 step="1" max=100 />
+    </div>
+    <label for="number-of-people">Bill</label>
+    <input type="number" min="1" step="1" id="number-of-people" />
+  </form>
+  <div class="results">
+    <div class="result-label">
+      <h1>Tip Amount</h1>
+      <h2>/ person</h2>
+      <h3 id="tip-per-person">$0.00</h3>
+    </div>
+    <div class="result-label">
+      <h1>Total</h1>
+      <h2>/ person</h2>
+      <h3 id="total-per-person">$0.00</h3>
+    </div>
+    <button id="reset">Reset</button>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://www.nickydover.com">Nicky Dover</a>.
