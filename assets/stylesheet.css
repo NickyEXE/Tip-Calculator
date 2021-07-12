@@ -1,7 +1,13 @@
 body {
   text-align: center;
-  font-family: "Space Mono"
+  font-family: "Space Mono";
+  font-weight: 400;
+  font-size: .8em;
+  background-color: hsl(185, 41%, 84%);
 }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
 
 .calculator {
   display: flex;
@@ -14,10 +20,14 @@ body {
   border-radius: 1em;
 }
 
+form {
+  min-width: 300px;
+}
+
 .radio {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
 }
 
 /* https://markheath.net/post/customize-radio-button-css */
@@ -29,8 +39,8 @@ body {
 
 .radio label {
   background-color: #ddd;
-  padding: 10px 20px;
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: 500;
   border: 2px solid #444;
   border-radius: 4px;
 }
@@ -46,10 +56,6 @@ body {
 
 .calculator > * {
   margin: 0 auto;
-}
-
-form {
-  min-width: 300px;
 }
 
 .results {
@@ -81,11 +87,5 @@ form {
 .result>p:nth-child(2) {
   color: hsl(172, 67%, 45%);
   font-size: 2.5em;
-  float: right;
-  clear: none;
-}
-
-
-body {
-  background-color: hsl(185, 41%, 84%);
+  font-weight: 700;
 }
