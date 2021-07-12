@@ -25,7 +25,7 @@ form {
   text-align: left;
 }
 
-input[type="number"]{
+form > input[type="number"]{
   display: block;
   width: 100%;
 }
@@ -44,20 +44,22 @@ input[type="number"]{
 }
 
 .radio label {
-  background-color: #ddd;
-  font-size: 24px;
+  background-color: hsl(183, 100%, 15%);
+  font-size: 16px;
+  text-align: center;
   font-weight: 500;
-  border: 2px solid #444;
+  color: hsl(0, 0%, 100%);
   border-radius: 4px;
+  padding: .4em;
 }
 
 .radio input[type="radio"]:checked + label {
-  background-color:#bfb;
-  border-color: #4c4;
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
 }
 
 .radio input[type="radio"]:hover + label {
-  border: 2px dashed #444;
+  border: 3px solid hsl(185, 41%, 84%);
 }
 
 .calculator > * {
