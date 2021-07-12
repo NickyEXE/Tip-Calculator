@@ -22,6 +22,12 @@ body {
 
 form {
   min-width: 300px;
+  text-align: left;
+}
+
+input[type="number"]{
+  display: block;
+  width: 100%;
 }
 
 .radio {
