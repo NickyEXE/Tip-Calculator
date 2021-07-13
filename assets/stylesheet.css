@@ -36,29 +36,23 @@ form > input[type="number"]{
   grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
 }
 
-/* https://markheath.net/post/customize-radio-button-css */
-.radio input[type="radio"] {
-  opacity: 0;
-  position: fixed;
-  width: 0;
-}
-
-.radio label {
+.radio-btn {
   background-color: hsl(183, 100%, 15%);
   font-size: 16px;
   text-align: center;
   font-weight: 500;
   color: hsl(0, 0%, 100%);
+  border: 0 none;
   border-radius: 4px;
   padding: .4em;
 }
 
-.radio input[type="radio"]:checked + label {
+.radio-btn.selected {
   background-color: hsl(185, 41%, 84%);
   color: hsl(183, 100%, 15%);
 }
 
-.radio input[type="radio"]:hover + label {
+.radio-btn:hover {
   border: 3px solid hsl(185, 41%, 84%);
 }
 
