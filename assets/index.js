@@ -10,7 +10,7 @@ class Form {
   setState = (key, value) => {
     this.state[key] = value
     console.log(this.state)
-    this.updateResults()
+    this.checkResults()
   }
 
   populateButtons = () => {
@@ -52,14 +52,23 @@ class Form {
     this.populateButtons()
   }
 
-  updateResults = () => {
+  checkResults = () => {
     const { tip, bill, numberOfPeople } = this.state
     if (tip * bill * numberOfPeople !== 0) {
-      const tipPerPerson = (tip/100) * bill / numberOfPeople
-      const totalPerPerson = (1 + (tip/100)) * bill / numberOfPeople
-      document.getElementById("tip-per-person").innerText = Form.toCurrency(tipPerPerson)
-      document.getElementById("total-per-person").innerText = Form.toCurrency(totalPerPerson)
+      this.renderResults()
+    } else if ( numberOfPeople == 0 ) {
+      this.resetResults()
+      document.querySelector(".alert").innerText = "Can't be zero"
     }
+  }
+
+  renderResults = () => {
+    const { tip, bill, numberOfPeople } = this.state
+    const tipPerPerson = (tip/100) * bill / numberOfPeople
+    const totalPerPerson = (1 + (tip/100)) * bill / numberOfPeople
+    document.getElementById("tip-per-person").innerText = Form.toCurrency(tipPerPerson)
+    document.getElementById("total-per-person").innerText = Form.toCurrency(totalPerPerson)
+    document.querySelector(".alert").innerText = ""
   }
 
   static toCurrency = (float) => {
