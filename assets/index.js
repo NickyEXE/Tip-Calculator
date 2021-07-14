@@ -1,42 +1,24 @@
 class Form {
   constructor(){
     this.form = document.querySelector("form")
-    this.form.addEventListener("change", this.handleChange)
     this.state = this.constructor.initialState()
-    this.populateButtons()
+    this.populateTipButtons()
+    this.appendCustomButton()
     this.addEventListeners()
   }
 
   setState = (key, value) => {
     this.state[key] = value
-    console.log(this.state)
-    this.checkResults()
-  }
-
-  populateButtons = () => {
-    const radioDiv = document.querySelector(".radio")
-    radioDiv.innerHTML = ""
-    const array = [5, 10, 15, 25, 50]
-    array.forEach(int => {
-      radioDiv.innerHTML += `
-      <input type="button" class="radio-btn ${this.state.tip == int ? "selected" : ""}" data-tip="${int}" value="${int}%"/>
-      `
-    })
+    this.updateDOMFromState()
   }
 
   handleChange = (e) => {
-    this.setState(e.target.name, parseFloat(e.target.value))
+    this.setState([e.target.name], parseFloat(e.target.value))
   }
 
   addEventListeners = () => {
-    document.querySelector(".radio").addEventListener("click", (e) => {
-      const btn = e.target.closest(".radio-btn")
-      if (btn) {
-        this.setState("tip", parseInt(btn.dataset.tip))
-        this.populateButtons()
-      }
-    })
     document.getElementById("reset").addEventListener("click", this.reset)
+    this.form.addEventListener("change", this.handleChange)
   }
 
   resetResults = () => {
@@ -48,15 +30,15 @@ class Form {
     this.resetResults()
     this.form.reset()
     this.state = this.constructor.initialState()
-    console.log(this.state)
-    this.populateButtons()
+    this.populateTipButtons()
   }
 
-  checkResults = () => {
+  updateDOMFromState = () => {
     const { tip, bill, numberOfPeople } = this.state
     if (tip * bill * numberOfPeople !== 0) {
       this.renderResults()
-    } else if ( numberOfPeople == 0 ) {
+    }
+    if ( numberOfPeople == 0 ) {
       this.resetResults()
       document.querySelector(".alert").innerText = "Can't be zero"
     }
@@ -71,6 +53,47 @@ class Form {
     document.querySelector(".alert").innerText = ""
   }
 
+  populateTipButtons = () => {
+    const radioDiv = document.querySelector(".radio")
+    radioDiv.innerHTML = ""
+    const array = [5, 10, 15, 25, 50]
+    array.forEach(int => {
+      const button = document.createElement("input")
+      button.classList.add("radio-btn")
+      button.type = "button"
+      button.value = `${int}%`
+      button.addEventListener("click", () => {
+        this.setState("tip", int)
+      })
+      radioDiv.appendChild(button)
+    })
+  }
+
+  appendCustomButton = () => {
+    const radioDiv = document.querySelector(".radio")
+    const customTip = document.createElement("input")
+    customTip.type = "button"
+    customTip.classList.add("radio-btn")
+    customTip.value = "Custom"
+    const handleClick = () => {
+      this.changeToNumberInput(customTip)
+      customTip.removeEventListener("click", handleClick)
+    }
+    customTip.addEventListener("click", handleClick)
+    radioDiv.appendChild(customTip)
+  }
+
+  changeToNumberInput = (input) => {
+    input.classList.add("selected")
+    input.type = "number"
+    input.minimum = 0
+    input.value = 20
+    this.setState("tip", 20)
+    input.addEventListener("change", () => {
+      this.setState("tip", parseInt(input.value))
+    })
+  }
+
   static toCurrency = (float) => {
     const formatter = new Intl.NumberFormat('en-us', {
       style: 'currency',
@@ -81,9 +104,8 @@ class Form {
 
   static initialState = () => ({
     bill: 0.00,
-    tip: 0,
+    tip: null,
     numberOfPeople: 0,
-    toggleCustom: false
   })
 }
 
