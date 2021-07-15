@@ -12,13 +12,17 @@ class Form {
     this.updateDOMFromState()
   }
 
+    addEventListeners = () => {
+      document.getElementById("reset").addEventListener("click", this.reset)
+      this.form.addEventListener("change", this.handleChange)
+    }
+
   handleChange = (e) => {
     this.setState([e.target.name], parseFloat(e.target.value))
   }
 
-  addEventListeners = () => {
-    document.getElementById("reset").addEventListener("click", this.reset)
-    this.form.addEventListener("change", this.handleChange)
+  removeSelected = () => {
+    document.querySelector(".selected")?.classList.remove("selected")
   }
 
   resetResults = () => {
@@ -31,6 +35,7 @@ class Form {
     this.form.reset()
     this.state = this.constructor.initialState()
     this.populateTipButtons()
+    this.appendCustomButton()
   }
 
   updateDOMFromState = () => {
@@ -62,7 +67,11 @@ class Form {
       button.classList.add("radio-btn")
       button.type = "button"
       button.value = `${int}%`
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (e) => {
+        if (e.target.classList.contains("radio-btn")){
+          this.removeSelected()
+          e.target.classList.add("selected")
+        }
         this.setState("tip", int)
       })
       radioDiv.appendChild(button)
@@ -85,6 +94,7 @@ class Form {
 
   changeToNumberInput = (input) => {
     input.classList.add("selected")
+    input.classList.remove("radio-btn")
     input.type = "number"
     input.minimum = 0
     input.value = 20
