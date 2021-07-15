@@ -1,10 +1,18 @@
 body {
+  --strong: hsl(172, 67%, 45%);
+  --veryDark: hsl(183, 100%, 15%);
+  --darkCyan: hsl(186, 14%, 43%);
+  --darkCyan2: hsl(184, 14%, 56%);
+  --lightCyan: hsl(185, 41%, 84%);
+  --lightCyan2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
   text-align: center;
+  background-color: var(--lightCyan);
   font-family: "Space Mono";
-  font-weight: 700;
-  font-size: .8em;
-  background-color: hsl(185, 41%, 84%);
+  color: var(--veryDark)
 }
+
+input, select, textarea, button{font-family:inherit;}
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
@@ -15,10 +23,13 @@ body {
   justify-content: space-between;
   margin: 1em auto;
   max-width: 750px;
-  background-color: white;
+  background-color: var(--white);
   padding: 1em;
   border-radius: 1em;
+  font-weight: 700;
+  font-size: .8em;
 }
+
 
 form {
   min-width: 325px;
@@ -29,6 +40,12 @@ form > input[type="number"]{
   display: block;
   width: 100%;
   font-size: 24px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--veryDark);
+  background-color: var(--lightCyan2);
+  border-radius: .25em;
+  border: none;
 }
 
 .radio {
@@ -41,21 +58,16 @@ form > input[type="number"]{
   background-color: hsl(183, 100%, 15%);
   font-size: 16px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 700;
   color: hsl(0, 0%, 100%);
   border: 0 none;
   border-radius: 4px;
   padding: .4em;
 }
 
-.radio-btn.selected {
-  background-color: hsl(185, 41%, 84%);
-  color: hsl(183, 100%, 15%);
-}
-
-.radio-btn:hover {
-  background-color: hsl(185, 41%, 84%);
-  color: hsl(183, 100%, 15%);
+.radio-btn.selected, .radio-btn:hover {
+  color: var(--veryDark);
+  background-color: var(--strong);
 }
 
 .calculator > * {
