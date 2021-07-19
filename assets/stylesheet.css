@@ -55,6 +55,7 @@ form {
 }
 
 .number-input {
+  margin-top: .5em;
   width: 100%;
   border-radius: .25em;
   border: solid var(--lightCyan2) 2px;
@@ -81,6 +82,7 @@ form {
 }
 
 .radio {
+  margin-top: .5em;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
@@ -125,6 +127,7 @@ input[type="number"]#custom-tip.selected {
 .radio-btn.selected, .radio-btn:hover, .radio-btn.selected:focus {
   color: var(--veryDark);
   background-color: var(--strong);
+  border-color: var(--strong);
 }
 
 .calculator > * {
