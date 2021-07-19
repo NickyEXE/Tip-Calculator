@@ -35,6 +35,9 @@ class Form {
     if (tip * bill * numberOfPeople !== 0) {
       this.renderResults()
     }
+    if (this.dom.resetButton.disabled && this.state !== this.constructor.initialState){
+      this.dom.resetButton.disabled = false
+    }
   }
 
   renderResults = () => {
@@ -90,14 +93,10 @@ class Form {
 
   checkForDivisionByZero = () => {
     const numberOfPeople = this.dom.form.numberOfPeople
-    const container = numberOfPeople.closest(".number-input")
     if (!numberOfPeople.value || numberOfPeople.value == 0){
-      this.dom.resetResults()
-      this.dom.alert.innerText = "Can't be zero"
-      container.classList.add("error")
+      this.dom.addAlert()
     } else {
-      this.dom.alert.innerText = ""
-      container.classList.remove("error")
+      this.dom.removeAlert()
     }
   }
 

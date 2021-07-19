@@ -16,6 +16,20 @@ class Dom {
   resetResults = () => {
     this.tipPerPerson.innerText = "$0.00"
     this.totalPerPerson.innerText = "$0.00"
+    this.resetButton.disabled = true
+  }
+
+  addAlert = () => {
+    const container = this.form.numberOfPeople.closest(".number-input")
+    this.dom.resetResults()
+    this.dom.alert.innerText = "Can't be zero"
+    container.classList.add("error")
+  }
+
+  removeAlert = () => {
+    const container = this.form.numberOfPeople.closest(".number-input")
+    this.dom.alert.innerText = ""
+    container.classList.remove("error")
   }
 
 }
