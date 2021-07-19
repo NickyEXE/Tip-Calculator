@@ -18,19 +18,23 @@
   <img src="./images/logo.svg" alt="splitter"/>
   <div class="calculator">
     <form>
-      <div class="input-container number-input">
+      <div class="input-container">
         <label class="label" for="bill">Bill</label>
-        <i class="icon money-icon"></i>
-        <input type="number" min="0" step=1 id="bill" name="bill" placeholder=0 />
+        <div class="number-input">
+          <i class="icon money-icon"></i>
+          <input type="number" min="0" step=1 id="bill" name="bill" placeholder=0 />
+        </div>
       </div>
       <div class="input-container">
         <span class="label">Select Tip %</span>
         <div class="radio"></div>
       </div>
-      <div class="input-container number-input">
+      <div class="input-container">
         <label class="label" for="number-of-people">Number of People</label><span class="alert"></span>
-        <i class="icon person-icon"></i>
-        <input type="number" min="0" step="1" id="number-of-people" name="numberOfPeople" placeholder=0 />
+        <div class="number-input">
+          <i class="icon person-icon"></i>
+          <input type="number" min="0" step="1" id="number-of-people" name="numberOfPeople" placeholder=0 />
+        </div>
       </div>
     </form>
     <div class="results">

@@ -66,8 +66,9 @@ class Form {
   appendCustomButton = () => {
     const customTip = document.createElement("input")
     customTip.type = "button"
-    customTip.classList.add("radio-btn", "custom")
+    customTip.classList.add("radio-btn")
     customTip.value = "Custom"
+    customTip.id = "custom-tip"
     const handleClick = () => {
       customTip.removeEventListener("click", handleClick)
       this.changeToNumberInput(customTip)
@@ -78,7 +79,7 @@ class Form {
 
   changeToNumberInput = (input) => {
     this.dom.switchSelected(input)
-    input.classList.remove("radio-btn", "custom")
+    input.classList.remove("radio-btn")
     input.value = 20
     input.type = "number"
     input.minimum = 0
@@ -89,13 +90,14 @@ class Form {
 
   checkForDivisionByZero = () => {
     const numberOfPeople = this.dom.form.numberOfPeople
+    const container = numberOfPeople.closest(".number-input")
     if (!numberOfPeople.value || numberOfPeople.value == 0){
       this.dom.resetResults()
       this.dom.alert.innerText = "Can't be zero"
-      numberOfPeople.classList.add("error")
+      container.classList.add("error")
     } else {
       this.dom.alert.innerText = ""
-      numberOfPeople.classList.remove("error")
+      container.classList.remove("error")
     }
   }
 

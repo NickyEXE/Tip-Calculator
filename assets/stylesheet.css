@@ -13,6 +13,16 @@ body {
   color: var(--veryDark)
 }
 
+
+input{
+  background:none;
+  outline:none;
+  border: none;
+}
+input:focus{
+  border:none;
+}
+
 input, select, textarea, button{font-family:inherit;}
 
 .attribution { font-size: 11px; text-align: center; }
@@ -33,6 +43,7 @@ input, select, textarea, button{font-family:inherit;}
 
 form {
   min-width: 325px;
+  max-width: 45%;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -43,44 +54,71 @@ form {
   margin: 1em 0;
 }
 
-
-.number-input input {
-  display: block;
+.number-input {
   width: 100%;
-  -moz-appearance: textfield;
-  font-size: 24px;
-  text-align: right;
-  font-weight: 700;
   border-radius: .25em;
   border: solid var(--lightCyan2) 2px;
   color: var(--veryDark);
   background-color: var(--lightCyan2);
 }
 
-.number-input input:focus{
+
+.number-input input {
+  /* display: block; */
+  font-size: 24px;
+  text-align: right;
+  font-weight: 700;
+  -moz-appearance: textfield;
+}
+
+.number-input:focus-within {
   border: solid var(--strong) 2px;
+}
+
+
+.number-input.error {
+  border: 2px solid var(--alert)
 }
 
 .radio {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .radio-btn {
-  background-color: hsl(183, 100%, 15%);
+  background-color: var(--veryDark);
   font-size: 16px;
   text-align: center;
   font-weight: 700;
   color: hsl(0, 0%, 100%);
-  border: 0 none;
+  border: 2px solid var(--veryDark);
   border-radius: 4px;
-  padding: .4em;
+  padding: 8px;
 }
 
-.radio-btn.custom {
-  color: var(--veryDark);
+#custom-tip {
   background-color: var(--lightCyan2);
+  border-radius: 4px;
+  border: 2px solid;
+}
+
+input[type="button"]#custom-tip {
+  color: var(--veryDark);
+  border-color: var(--lightCyan2);
+}
+
+input[type="number"]#custom-tip {
+  width: 94px;
+  text-align: right;
+  padding-right: 6px;
+  font-size: 16px;
+  color: var(--veryDark);
+  border-color: var(--lightCyan2);
+}
+
+input[type="number"]#custom-tip.selected {
+  border: 2px solid var(--strong);
 }
 
 .radio-btn.selected, .radio-btn:hover, .radio-btn.selected:focus {
@@ -123,10 +161,6 @@ form {
   font-weight: 700;
 }
 
-.number-input > .error {
-  border: 2px solid var(--alert)
-}
-
 .alert {
   color: var(--alert);
   float: right;
@@ -140,4 +174,17 @@ input::-webkit-inner-spin-button {
 
 textarea:focus, input:focus{
   outline: none;
+}
+
+.icon {
+  padding: 10px;
+  color: black;
+  min-width: 50px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.person-icon{
+  background-image: url("../images/icon-person.svg")
 }
