@@ -76,16 +76,22 @@ form {
   border: solid var(--strong) 2px;
 }
 
-
 .number-input.error {
   border: 2px solid var(--alert)
 }
 
 .radio {
   margin-top: .5em;
+  justify-items: center;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
+}
+
+@media only screen and (max-width: 742px) {
+  .radio {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .radio-btn {
