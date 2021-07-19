@@ -93,7 +93,7 @@ form {
   font-size: 16px;
   text-align: center;
   font-weight: 700;
-  color: hsl(0, 0%, 100%);
+  color: var(--white);
   border: 2px solid var(--veryDark);
   border-radius: 4px;
   padding: 8px;
@@ -135,7 +135,7 @@ input[type="number"]#custom-tip.selected {
 .results {
   position: relative;
   min-width: 325px;
-  background-color: hsl(183, 100%, 15%);
+  background-color: var(--veryDark);
   border-radius: 1em;
   padding: 2em;
 }
@@ -152,14 +152,14 @@ input[type="number"]#custom-tip.selected {
 }
 
 .result-label p:first-child {
-  color: hsl(189, 41%, 97%);
+  color: var(--lightCyan2);
 }
 
 .result-label p:nth-child(2) {
-  color: hsl(185, 41%, 84%)
+  color: var(--darkCyan2)
 }
 .result>p:nth-child(2) {
-  color: hsl(172, 67%, 45%);
+  color: var(--strong);
   font-size: 2.5em;
   font-weight: 700;
 }
