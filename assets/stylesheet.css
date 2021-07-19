@@ -6,6 +6,7 @@ body {
   --lightCyan: hsl(185, 41%, 84%);
   --lightCyan2: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --alert: rgb(255, 157, 0);
   text-align: center;
   background-color: var(--lightCyan);
   font-family: "Space Mono";
@@ -30,22 +31,34 @@ input, select, textarea, button{font-family:inherit;}
   font-size: .8em;
 }
 
-
 form {
   min-width: 325px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-form > input[type="number"]{
+.input-container {
+  margin: 1em 0;
+}
+
+
+.number-input input {
   display: block;
   width: 100%;
+  -moz-appearance: textfield;
   font-size: 24px;
   text-align: right;
   font-weight: 700;
+  border-radius: .25em;
+  border: solid var(--lightCyan2) 2px;
   color: var(--veryDark);
   background-color: var(--lightCyan2);
-  border-radius: .25em;
-  border: none;
+}
+
+.number-input input:focus{
+  border: solid var(--strong) 2px;
 }
 
 .radio {
@@ -65,7 +78,12 @@ form > input[type="number"]{
   padding: .4em;
 }
 
-.radio-btn.selected, .radio-btn:hover {
+.radio-btn.custom {
+  color: var(--veryDark);
+  background-color: var(--lightCyan2);
+}
+
+.radio-btn.selected, .radio-btn:hover, .radio-btn.selected:focus {
   color: var(--veryDark);
   background-color: var(--strong);
 }
@@ -79,7 +97,6 @@ form > input[type="number"]{
   background-color: hsl(183, 100%, 15%);
   border-radius: 1em;
   padding: 2em;
-  min-height: 300px;
 }
 
 .result {
@@ -106,7 +123,21 @@ form > input[type="number"]{
   font-weight: 700;
 }
 
+.number-input > .error {
+  border: 2px solid var(--alert)
+}
+
 .alert {
-  color: rgb(255, 157, 0);
+  color: var(--alert);
   float: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }

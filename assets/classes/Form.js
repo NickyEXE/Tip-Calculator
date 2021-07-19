@@ -66,7 +66,7 @@ class Form {
   appendCustomButton = () => {
     const customTip = document.createElement("input")
     customTip.type = "button"
-    customTip.classList.add("radio-btn")
+    customTip.classList.add("radio-btn", "custom")
     customTip.value = "Custom"
     const handleClick = () => {
       customTip.removeEventListener("click", handleClick)
@@ -78,7 +78,7 @@ class Form {
 
   changeToNumberInput = (input) => {
     this.dom.switchSelected(input)
-    input.classList.remove("radio-btn")
+    input.classList.remove("radio-btn", "custom")
     input.value = 20
     input.type = "number"
     input.minimum = 0
