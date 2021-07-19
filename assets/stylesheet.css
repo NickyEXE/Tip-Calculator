@@ -177,6 +177,10 @@ input[type="number"]#custom-tip.selected {
   padding: 8px;
 }
 
+#reset:disabled {
+  background-color: var(--darkCyan)
+}
+
 .alert {
   color: var(--alert);
   float: right;
