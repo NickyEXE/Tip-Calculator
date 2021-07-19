@@ -85,7 +85,7 @@ class Form {
     input.minimum = 0
     this.setState("tip", 20)
     input.addEventListener("focus", () => this.dom.switchSelected(input))
-    input.addEventListener("change", () => this.setState("tip", parseInt(input.value)))
+    input.addEventListener("change", () => this.setState("tip", parseInt(input.value ||= 0)))
   }
 
   checkForDivisionByZero = () => {
