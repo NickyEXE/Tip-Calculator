@@ -13,12 +13,12 @@ body {
   color: var(--veryDark)
 }
 
-
 input{
   background:none;
   outline:none;
   border: none;
 }
+
 input:focus{
   border:none;
 }
@@ -64,7 +64,6 @@ form {
 
 
 .number-input input {
-  /* display: block; */
   font-size: 24px;
   width: 85%;
   text-align: right;
