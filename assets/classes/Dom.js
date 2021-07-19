@@ -28,7 +28,7 @@ class Dom {
 
   removeAlert = () => {
     const container = this.form.numberOfPeople.closest(".number-input")
-    this.dom.alert.innerText = ""
+    this.alert.innerText = ""
     container.classList.remove("error")
   }
 
