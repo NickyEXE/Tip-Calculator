@@ -66,12 +66,12 @@ form {
 input[type="number"] {
   font-weight: 700;
   -moz-appearance: textfield;
+  text-align: right;
 }
 
 .number-input input {
   font-size: 24px;
   width: 85%;
-  text-align: right;
 }
 
 .number-input:focus-within {
